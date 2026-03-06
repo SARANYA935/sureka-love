@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For Sureka ❤️</title>
+
+<style>
+
+body{
+margin:0;
+padding:0;
+background:black;
+color:white;
+font-family:Arial;
+text-align:center;
+overflow:hidden;
+}
+
+/* Stars Background */
+
+.star{
+position:absolute;
+width:2px;
+height:2px;
+background:white;
+animation:twinkle 2s infinite;
+}
+
+@keyframes twinkle{
+0%{opacity:0}
+50%{opacity:1}
+100%{opacity:0}
+}
+
+/* Envelope */
+
+.envelope{
+width:200px;
+height:120px;
+background:#ff4d6d;
+margin:200px auto;
+position:relative;
+cursor:pointer;
+border-radius:5px;
+}
+
+.envelope:before{
+content:'';
+position:absolute;
+top:-60px;
+left:0;
+width:0;
+height:0;
+border-left:100px solid transparent;
+border-right:100px solid transparent;
+border-bottom:60px solid #ff4d6d;
+}
+
+/* Letter */
+
+.letter{
+display:none;
+background:white;
+color:black;
+width:420px;
+padding:30px;
+border-radius:20px;
+margin:auto;
+box-shadow:0 10px 25px rgba(0,0,0,0.5);
+animation:fade 2s;
+}
+
+@keyframes fade{
+from{opacity:0;transform:scale(0.7)}
+to{opacity:1;transform:scale(1)}
+}
+
+/* Hearts */
+
+.heart{
+position:fixed;
+font-size:25px;
+animation:float 6s linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0)}
+100%{transform:translateY(-1000px)}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="envelope" onclick="openLetter()"></div>
+
+<div class="letter" id="letter">
+
+<h1>Dear Sureka ❤️</h1>
+
+<p>
+
+Hi Sureka,<br><br>
+
+ennaku ethula enna elutharathunu theriyala  
+konjam sentimenta elutha vara matikuthu  
+
+inimel avathu number 1 ,2 , 3 nu kupudatha  
+nee ennaku clg days la memorable mathiruka  
+
+Nee en life la vandhathu enaku romba precious.  
+
+I will always respect and care for you.  
+
+<br><br>
+
+Love you forever 💖
+
+</p>
+
+<h3>– BYE BYE </h3>
+
+</div>
+
+<script>
+
+/* Stars */
+
+for(let i=0;i<120;i++){
+let star=document.createElement("div");
+star.className="star";
+star.style.left=Math.random()*100+"vw";
+star.style.top=Math.random()*100+"vh";
+document.body.appendChild(star);
+}
+
+/* Open Letter */
+
+function openLetter(){
+document.querySelector(".envelope").style.display="none";
+document.getElementById("letter").style.display="block";
+createHearts();
+}
+
+/* Hearts Animation */
+
+function createHearts(){
+setInterval(()=>{
+let heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="❤️";
+heart.style.left=Math.random()*100+"vw";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},5000);
+
+},200);
+}
+
+</script>
+
+</body>
+</html>
